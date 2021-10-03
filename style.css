@@ -18,7 +18,7 @@ body {
 .container .header {
     display: flex;
     flex-wrap: nowrap;
-    padding: 20px 40px 10px;
+    padding: 20px 20px 10px;
     font-size: 24px;
 }
 .container .middle {
