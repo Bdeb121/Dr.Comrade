@@ -41,7 +41,6 @@ document.documentElement.style.setProperty('--bg-P', `${pri}`);
 document.documentElement.style.setProperty('--bg-S', `${sec}`);
 document.documentElement.style.setProperty('--bg-T', `${ter}`);
 
-
 //  javascript part
 //  start box html part select
 let chapter = document.querySelector('.chapter');
@@ -51,7 +50,6 @@ chapter.innerText = `${quiz.chapter}`;
 for (let i = 0; i < quiz.topics.length; i++) {
     topics.innerHTML += `<span>${quiz.topics[i]}</span>`;
 }
-
 
 // quiz box html part select
 let title = document.querySelector('.quiz-title');
@@ -66,7 +64,6 @@ let tbody = document.querySelector('.tbody');
 
 let opts = document.querySelector('.question-option');
 let list = document.querySelector('.answer-indicator');
-
 
 // Review Box Selected
 let titleR = document.querySelector('.review-title');
@@ -83,7 +80,6 @@ let optsR = document.querySelector('.question-option-r');
 let quesN = document.querySelector('.question-notation');
 let SolQ = document.querySelector('.question-solution');
 let listR = document.querySelector('.answer-indicator-r');
-
 
 // All Box Selected
 let S_Box = document.querySelector('.start-box');
@@ -399,6 +395,7 @@ submit.addEventListener('click', function () {
 
     side1.classList.remove('active');
     over1.classList.remove('active');
+    side1.classList.add('inactive');
     over1.classList.add('inactive');
 
     Q_Box.classList.remove('active');
@@ -464,7 +461,6 @@ review.addEventListener('click', function () {
 });
 
 function setReviewQuestion() {
-
     // set the time
     let timeTaken = `${minutes} : ${seconds}`;
     if (minutes < 1) {
@@ -608,14 +604,12 @@ function setReviewQuestion() {
         quesN.classList.remove('unmarked');
 
         quesN.innerHTML = `Correct <span>&#10004;</span>`;
-
     } else if (currentAns == undefined) {
         quesN.classList.add('unmarked');
         quesN.classList.remove('correct');
         quesN.classList.remove('incorrect');
 
         quesN.innerHTML = `Unmarked <span>&#10031;</span>`;
-
     } else {
         optsR.childNodes[currentAns - 1].classList.add('wrong');
         optsR.childNodes[currentAns - 1].firstElementChild.classList.add(
@@ -655,7 +649,6 @@ function setReviewQuesList() {
         if (uAns == rAns) {
             listR.children[i].classList.add('right');
         } else if (uAns == undefined) {
-            
         } else {
             listR.children[i].classList.add('wrong');
         }
@@ -739,4 +732,3 @@ function setAgain() {
     setQuesList();
     setTimer();
 }
-
